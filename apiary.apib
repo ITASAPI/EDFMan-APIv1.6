@@ -30,6 +30,47 @@ Model Header containing AccessToken
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
 
+# Group Contract-Physical
+
+## Net and Gross Weights Update [/Contracts/{TradingEntityId}/Traffic/AdjustNetAndGrossWeights/{PhysicalTradeId}]
+
+### Update Net and Gross Weights [PATCH]
+`PATCH` Adjust Net and Gross Weights. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|PhysicalTradeId|Physical Trade Id|`string`|10||Required|
+|GrossWeight|Gross Weight|`decimal`|||Required|
+|NetWeight|Net Weight|`decimal`|||Required|
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (NetGrossWeight Update)
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
+    + PhysicalTradeId (required, string, `P00001.000`) ... Code for Physical Trade to update.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data
+            + PhysicalTradeId: P00001.000 (string)
+        + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
+    
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
 # Group Electronic Order Book
 
 ## Broker Data Create [/ElectronicOrderBook/BrokerData]
@@ -686,3 +727,8 @@ None.
 + SecondBrokerCommissionCurrencyCode: GBP (string)
 + TradeTime: 15:25 (string)
 + TradingEntityId: DT (string)
+
+## NetGrossWeight Update (object)
++ PhysicalTradeId: P00001.000 (string)
++ UnitOfMeasurementCode: MT (string)
++ Quantity: 20 (number)
