@@ -10,7 +10,7 @@ VERSION: 1.1
 ## New Endpoints
 
 <ul>
-<li>Stocks <b>Instruction Sheet Create</b>: Create Instruction Sheet,<a href="/#reference/stocks/instruction-sheet-create"> Link</a></li>
+<li>Stocks <b>Contract-Physical</b>: Update New and Gross Weights,<a href="/#reference/contract-physical/net-and-gross-weights-update"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
@@ -56,7 +56,7 @@ Model Header containing AccessToken
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
-        + Data (array [NetGrossWeight Response])
+        + Data (array [NetGrossWeight ResponseP, NetGrossWeight ResponseS])
         + Response (200 UpdateResponse)
         + Messages (array [201 ErrorMessageDetail])
     
@@ -727,8 +727,13 @@ None.
 + TradeTime: 15:25 (string)
 + TradingEntityId: DT (string)
 
-## NetGrossWeight Response (object)
+## NetGrossWeight ResponseP (object)
 + PhysicalTradeId: P00001.000 (string)
++ UnitOfMeasurementCode: MT (string)
++ Quantity: 20 (number)
+
+## NetGrossWeight ResponseS (object)
++ PhysicalTradeId: S00001.000 (string)
 + UnitOfMeasurementCode: MT (string)
 + Quantity: 20 (number)
 
