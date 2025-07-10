@@ -32,7 +32,7 @@ Model Header containing AccessToken
 
 # Group Contract-Physical
 
-## Net and Gross Weights Update [/Contracts/{TradingEntityId}/Traffic/AdjustNetAndGrossWeights/{PhysicalTradeId}]
+## Net and Gross Weights Update [/Contracts/{TradingEntityId}/Traffic/NetAndGrossWeights/{PhysicalTradeId}]
 
 ### Update Net and Gross Weights [PATCH]
 `PATCH` Adjust Net and Gross Weights. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
@@ -56,8 +56,7 @@ Model Header containing AccessToken
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
-        + Data
-            + PhysicalTradeId: P00001.000 (string)
+        + Data (array [NetGrossWeight Response])
         + Response (200 UpdateResponse)
         + Messages (array [201 ErrorMessageDetail])
     
@@ -728,7 +727,12 @@ None.
 + TradeTime: 15:25 (string)
 + TradingEntityId: DT (string)
 
-## NetGrossWeight Update (object)
+## NetGrossWeight Response (object)
 + PhysicalTradeId: P00001.000 (string)
 + UnitOfMeasurementCode: MT (string)
 + Quantity: 20 (number)
+
+## NetGrossWeight Update (object)
++ PhysicalTradeId: P00001.000 (string)
++ GrossWeight: `21.00` (number)
++ Quantity: `20.00` (number)
