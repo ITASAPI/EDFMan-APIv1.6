@@ -14,7 +14,7 @@ VERSION: 1.1
 ## New Endpoints
 
 <ul>
-<li>Stocks <b>Contract-Physical</b>: Update New and Gross Weights,<a href="/#reference/contract-physical/net-and-gross-weights-update"> Link</a></li>
+<li>Inventory <b>Bale Grouping Create</b>: Create Bale Grouping,<a href="/#reference/inventory/bale-grouping-create"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
@@ -462,7 +462,7 @@ None.
 |GroupSubType|Group Sub Type|`string`|10||Required|
 |GroupDescription|Group Description|`string`|255||Required|
 |IsStopWeights|Is Stop Weights|`boolean`|||Required|
-|InventoryIds|see <b><a href="/#reference/data-object-definitions/tradingentity/tradingentity">InventoryId</a></b> object|[array] of `object`|||Required|
+|InventoryIds|see <b><a href="/#reference/data-object-definitions/inventoryid">InventoryId</a></b> object|[array] of `object`|||Required|
 |AllocatedSaleCode|Allocated Sale Code|`string`|10|||
 |MarksStyle|Marks Style|`string`|9||`Manual`, `Automatic` or `Prefix`|
 |Mark|Mark|`string`|10||Required if MarkStyle = `Manual`|
@@ -722,7 +722,7 @@ A multipurpose object used by several endpoints
 + AllocatedSaleCode: S00001.000 (string)
 + MarksStyle: Manual (string)
 + Mark: ACGT (string)
-+ Prefix: `` (string)
++ Prefix: (string)
 + NewRecap: true (boolean)
 + RecapPrefix: C1 (string)
 + RecapMark: MEMPHIS (string)
