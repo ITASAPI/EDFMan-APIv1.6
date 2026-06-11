@@ -451,6 +451,59 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+# Group Inventory
+
+## Bale Grouping Create [/Inventory/{TradingEntityId}/Grouping/CreateBaleGrouping]
+
+### Create Bale Grouping [POST]
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|GroupType|Group Type|`string`|10||`Sale`, `Logistics`, `Sample` or `Other`|
+|GroupSubType|Group Sub Type|`string`|10||Required|
+|GroupDescription|Group Description|`string`|255||Required|
+|IsStopWeights|Is Stop Weights|`boolean`|||Required|
+|InventoryIds|see <b><a href="/#reference/data-object-definitions/tradingentity/tradingentity">InventoryId</a></b> object|[array] of `object`|||Required|
+|AllocatedSaleCode|Allocated Sale Code|`string`|10|||
+|MarksStyle|Marks Style|`string`|9||`Manual`, `Automatic` or `Prefix`|
+|Mark|Mark|`string`|10||Required if MarkStyle = `Manual`|
+|Prefix|Prefix|`string`|5||Required if MarkStyle = `Prefix`|
+|NewRecap|New Recap|`boolean`||||
+|RecapPrefix|Recap Prefix|`string`|3|||
+|RecapMark|Recap Mark|`string`|20|||
+|RecapDescription|Recap Description|`string`|255|||
+|RecapStatus|Recap Status|`string`|255|||
+
+<hr />
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|GroupId|Group Id|`number`||||
+
++ Parameters
+    + TradingEntityId (required, string, `BU`) ... Identify specific trading entity. 
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (BaleGroupingRequest)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (BaleGroupingResponse)
+        + Response (201 CreateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 # Group Stocks
 
 ## Instruction Sheet Create [/Stocks/{TradingEntityId}/Instructions/CreateInstructionSheet/{PhysicalTradeId}/{ReleaseId}]
@@ -552,6 +605,22 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+# Group Data Object Definitions
+List of re-usable Data Objects referenced as `object` types. Not that these endpoints are not accessable and only here for reference purposes.
+
+## InventoryId [/InventoryId]
+A multipurpose object used by several endpoints
+### InventoryId[GET]
+
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InventoryId|Inventory Id|`number`|||Required|
+
+
++ Response 200 (application/json; charset=utf-8)
++ Attributes (InventoryIdResponse)
+
 # Data Structures
 
 ## 200 SuccessResponse (object)
@@ -644,6 +713,31 @@ None.
 ## accessToken (object)
 + Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg 
 
+## BaleGroupingRequest (object)
++ GroupType: Sale (string)
++ GroupSubType: SHORTS (string)
++ GroupDescription: Short Bales (string)
++ IsStopWeights: true (boolean)
++ InventoryIds (array [BaleGroupingInventoryId1, BaleGroupingInventoryId2])
++ AllocatedSaleCode: S00001.000 (string)
++ MarksStyle: Manual (string)
++ Mark: ACGT (string)
++ Prefix: `` (string)
++ NewRecap: true (boolean)
++ RecapPrefix: C1 (string)
++ RecapMark: MEMPHIS (string)
++ RecapMarkDescription: Grade 1 Memphis (string)
++ RecapStatus: Valid (string)
+
+## BaleGroupingInventoryId1 (object)
++ InventoryId: 150 (number)
+
+## BaleGroupingInventoryId2 (object)
++ InventoryId: 151 (number)
+
+## BaleGroupingResponse (object)
++ GroupId: 50 (number)
+
 ## BrokerDataCreate (object)
 + OrderId: 1 (number)
 + SerialNo: 123 (number)
@@ -729,6 +823,9 @@ None.
 + SecondBrokerCommissionCurrencyCode: GBP (string)
 + TradeTime: 15:25 (string)
 + TradingEntityId: DT (string)
+
+## InventoryIdResponse (object)
++ InventoryId: 100 (number)
 
 ## NetGrossWeight ResponseP (object)
 + PhysicalTradeId: P00001.000 (string)
