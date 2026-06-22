@@ -460,7 +460,7 @@ None.
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |GroupType|Group Type|`string`|10||`Sale`, `Logistics`, `Sample` or `Other`|
-|GroupSubType|Group Sub Type|`string`|10||Required|
+|GroupSubTypeCode|Group Sub Type Code|`string`|10||Required|
 |GroupDescription|Group Description|`string`|255||Required|
 |IsStopWeights|Is Stop Weights|`boolean`|||Required|
 |InventoryIds|see <b><a href="/#reference/data-object-definitions/inventoryid">InventoryId</a></b> object|[array] of `object`|||Required|
@@ -758,7 +758,7 @@ A multipurpose object used by several endpoints
 
 ## BaleGroupingRequest (object)
 + GroupType: Sale (string)
-+ GroupSubType: SHORTS (string)
++ GroupSubTypeCode: SHORTS (string)
 + GroupDescription: Short Bales (string)
 + IsStopWeights: true (boolean)
 + InventoryIds (array [BaleGroupingInventoryId1, BaleGroupingInventoryId2])
