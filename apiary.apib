@@ -463,7 +463,7 @@ None.
 |GroupSubTypeCode|Group Sub Type Code|`string`|10||Required|
 |GroupDescription|Group Description|`string`|255||Required|
 |IsStopWeights|Is Stop Weights|`boolean`|||Required|
-|InventoryIds|see <b><a href="/#reference/data-object-definitions/inventoryid">InventoryId</a></b> object|[array] of `object`|||Required|
+|InventoryIds|Inventory Ids|[array] of `number`|||Required|
 |AllocatedSaleCode|Allocated Sale Code|`string`|10|||
 |MarksStyle|Marks Style|`string`|9||`Manual`, `Automatic` or `Prefix`|
 |Mark|Mark|`string`|10||Required if MarkStyle = `Manual`|
@@ -648,22 +648,6 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-# Group Data Object Definitions
-List of re-usable Data Objects referenced as `object` types. Not that these endpoints are not accessable and only here for reference purposes.
-
-## InventoryId [/InventoryId]
-A multipurpose object used by several endpoints
-### InventoryId[GET]
-
-
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|InventoryId|Inventory Id|`number`|||Required|
-
-
-+ Response 200 (application/json; charset=utf-8)
-+ Attributes (InventoryIdResponse)
-
 # Data Structures
 
 ## 200 SuccessResponse (object)
@@ -761,7 +745,7 @@ A multipurpose object used by several endpoints
 + GroupSubTypeCode: SHORTS (string)
 + GroupDescription: Short Bales (string)
 + IsStopWeights: true (boolean)
-+ InventoryIds (array [BaleGroupingInventoryId1, BaleGroupingInventoryId2])
++ InventoryIds (array [number]) - Example: [150, 151]
 + AllocatedSaleCode: S00001.000 (string)
 + MarksStyle: Manual (string)
 + Mark: ACGT (string)
@@ -866,9 +850,6 @@ A multipurpose object used by several endpoints
 + SecondBrokerCommissionCurrencyCode: GBP (string)
 + TradeTime: 15:25 (string)
 + TradingEntityId: DT (string)
-
-## InventoryIdResponse (object)
-+ InventoryId: 100 (number)
 
 ## NetGrossWeight ResponseP (object)
 + PhysicalTradeId: P00001.000 (string)
