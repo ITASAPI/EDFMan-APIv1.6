@@ -459,13 +459,13 @@ None.
 ### Create Bale Grouping [POST]
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|GroupType|Group Type|`string`|10||`Sale`, `Logistics`, `Sample` or `Other`|
+|GroupType|Group Type|`string`|10|`Sale` currently not available|`Logistics`, `Sample` or `Other`|
 |GroupSubTypeCode|Group Sub Type Code|`string`|10||Required|
 |GroupDescription|Group Description|`string`|255||Required|
 |IsStopWeights|Is Stop Weights|`boolean`|||Required|
 |InventoryIds|Inventory Ids|[array] of `number`|||Required|
 |AllocatedSaleCode|Allocated Sale Code|`string`|10|||
-|MarksStyle|Marks Style|`string`|9||`Manual`, `Automatic` or `Prefix`|
+|MarksStyle|Marks Style|`string`|9||Required - `Manual`, `Automatic` or `Prefix`|
 |Mark|Mark|`string`|10||Required if MarkStyle = `Manual`|
 |Prefix|Prefix|`string`|5||Required if MarkStyle = `Prefix`|
 |NewRecap|New Recap|`boolean`||||
