@@ -2,26 +2,25 @@ FORMAT: 1A
 HOST: http://itas.apiary.io/
 VERSION: 1.1
 
-# ED&FMan Custom API v1.3
+# ED&FMan Custom API v1.4
 
 ## Disclaimer
 
 **** Warning: at this point, ITAS API does not support asynchronous or multithreading calls for POST, PUT, PATCH and DELETE requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
 <br />
 <br />
-<strong>Release notes</strong> (<sup>1st</sup> July 2026.)
+<strong>Release notes</strong> (<sup>7th</sup> August 2026.)
 
 ## New Endpoints
 
 <ul>
-<li>Inventory <b>Bale Grouping Create</b>: Create Bale Grouping,<a href="/#reference/inventory/bale-grouping-create"> Link</a></li>
-<li>Inventory <b>Bale Grouping Removal</b>: Remove Bale Grouping,<a href="/#reference/inventory/bale-grouping-removal"> Link</a></li>
+<li>None</li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>None</li>
+<li>Inventory <b>Bale Grouping Create</b>: GroupType Sale added,<a href="/#reference/inventory/bale-grouping-create"> Link</a></li>
 </ul>
 <div>** ends ** </div>
 
@@ -459,7 +458,7 @@ None.
 ### Create Bale Grouping [POST]
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|GroupType|Group Type|`string`|10|`Sale` currently not available|Required - `Logistics`, `Sample` or `Other`|
+|GroupType|Group Type|`string`|10||Required - `Logistics`, `Sale`, `Sample` or `Other`|
 |GroupSubTypeCode|Group Sub Type Code|`string`|10||Required|
 |GroupDescription|Group Description|`string`|255||Required|
 |IsStopWeights|Is Stop Weights|`boolean`|||Required|
