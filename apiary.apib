@@ -546,6 +546,46 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## Logistics Movement Update [/Inventory/{TradingEntityId}/LogisticsMovement/{GroupId}/{Uniqueness}]
+
+### Update Logistics Movement [PATCH]
+`PATCH` Update Logistics Movement Records. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|GroupId|Group Id|`number`|||Required|
+|Uniqueness|Uniqueness|`number`|||Required|
+|RequestedLoadDate|Requested Load Date|`datetime`||||
+|ShipmentOrderRequested|Shipment Order Requested|`boolean`||||
+|DestinationWarehouse|Destination Warehouse|`string`|10|||
+
++ Request (application/json)
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (LogisticsMovement Update)
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
+    + GroupId (required, number, `1515`) ... Group Id of LogisticsMovement record to update.
+    + Uniqueness (required, number, `4`) ... Uniqueness of LogisticsMovement record to update.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data
+            + GroupId: 1515 (number)
+        + Response (200 UpdateResponse)
+    
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 # Group Stocks
 
 ## Instruction Sheet Create [/Stocks/{TradingEntityId}/Instructions/CreateInstructionSheet/{PhysicalTradeId}/{ReleaseId}]
@@ -852,6 +892,13 @@ None.
 + SecondBrokerCommissionCurrencyCode: GBP (string)
 + TradeTime: 15:25 (string)
 + TradingEntityId: DT (string)
+
+## LogisticsMovement Update (object)
++ GroupId: 1515 (number)
++ Uniqueness: 4 (number)
++ RequestedLoadDate: `2026-08-12T00:00:00Z` (string)
++ ShipmentOrderRequested: true (boolean)
++ DestinationWarehouse: 054205.P (string)
 
 ## NetGrossWeight ResponseP (object)
 + PhysicalTradeId: P00001.000 (string)
