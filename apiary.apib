@@ -504,6 +504,49 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## Bale Grouping Update [/Inventory/{TradingEntityId}/Grouping/UpdateBaleGrouping/{GroupId}]
+
+### Update Bale Grouping [PATCH]
+`PATCH` Update Bale Grouping. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|GroupId|Group Id|`number`|||Required|
+|GroupDescription|Group Description|`string`|255|||
+|MarksStyle|Marks Style|`string`|9||`Manual`, `Automatic` or `Prefix`|
+|Mark|Mark|`string`|10||Required if MarkStyle = `Manual`|
+|Prefix|Prefix|`string`|5||Required if MarkStyle = `Prefix`|
+|NewRecap|New Recap|`boolean`||||
+|RecapPrefix|Recap Prefix|`string`|3|||
+|RecapMark|Recap Mark|`string`|20|||
+|RecapDescription|Recap Description|`string`|255|||
+|RecapStatus|Recap Status|`string`|255|||
+
++ Request (application/json)
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (BaleGroupingUpdateRequest)
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
+    + GroupId (required, number, `50`) ... Group Id of LogisticsMovement record to update.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (BaleGroupingResponse)
+        + Response (200 UpdateResponse)
+    
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 ## Bale Grouping Removal  [/Inventory/{TradingEntityId}/Grouping/RemoveBaleGrouping/{GroupId}]
 
 ### Remove Bale Grouping [DELETE]
@@ -789,6 +832,18 @@ None.
         + 150
         + 151
 + AllocatedSaleCode: (string)
++ MarksStyle: Manual (string)
++ Mark: ACGT (string)
++ Prefix: (string)
++ NewRecap: true (boolean)
++ RecapPrefix: C1 (string)
++ RecapMark: MEMPHIS (string)
++ RecapDescription: Grade 1 Memphis (string)
++ RecapStatus: Valid (string)
+
+## BaleGroupingUpdateRequest (object)
++ GroupId: 50 (number)
++ GroupDescription: Short Bales (string)
 + MarksStyle: Manual (string)
 + Mark: ACGT (string)
 + Prefix: (string)
