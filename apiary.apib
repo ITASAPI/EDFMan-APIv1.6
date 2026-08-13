@@ -15,6 +15,7 @@ VERSION: 1.1
 
 <ul>
 <li>Inventory <b>Logistics Movement Update</b>: Update Logistics Movement,<a href="/#reference/inventory/logistics-movement-update"> Link</a></li>
+<li>Inventory <b>Bale Grouping Update</b>: Update Bale Grouping,<a href="/#reference/inventory/bale-grouping-update"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
@@ -451,7 +452,55 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-# Group Inventory
+# Group Invoicing
+
+## Invoice Staging Records Create [/Invoicing/{TradingEntityId}/Cotton/InvoiceStage]
+
+### Create Invoice Staging Records [POST]
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|DocumentDate|Document Date|`datetime`|||Required|
+|ValueDate|Value Date|`datetime`|||Required|
+|Type|Type|`string`|9|Defaulted to `Warehouse`|`Warehouse` or `Freight`|
+|SupplierCode|Supplier Code|`string`|8|||
+|PaymentTermsCode|Payment Terms Code|`string`|8|||
+|ClientReference|Client Reference|`string`|25|||
+|DocumentFile|Document File|`string`||Base64 string||
+|DocumentName|Document Name|`string`|200|||
+|Legs|see <b><a href="/#reference/data-object-definitions">Invoice Stage Leg</a></b> object|`object`|||Required|
+
+<hr />
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|TransactionId|Transaction Id|`number`||||
+
++ Parameters
+    + TradingEntityId (required, string, `BU`) ... Identify specific trading entity. 
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (BaleGroupingRequest)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (InvoiceStageResponse)
+        + Response (201 CreateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+# Group Inventory 
 
 ## Bale Grouping Create [/Inventory/{TradingEntityId}/Grouping/CreateBaleGrouping]
 
@@ -730,6 +779,29 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+# Group Data Object Definitions
+List of re-usable Data Objects referenced as `object` types. Not that these endpoints are not accessable and only here for reference purposes.
+
+## Invoice Stage Leg [/InvoiceStageLeg]
+A multipurpose object used by several endpoints. 
+
+### Invoice Stage Leg[GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|GroupNumber|Group Number|`number`|||Required|
+|HaulId|Haul Id|`number`|||Required|
+|CostCode|Cost Code|`string`|8|||
+|PercentActualised|Percent Actualised|`number`|||Required|
+|InvoiceValue|Invoice Value|`decimal`|||Required|
+|VatCode|Vat Code|`string`|2|||
+|NominalAccountCode|Nominal Account Code|`string`|9|||
+|ExpenseCode|Expense Code|`string`|7|||
+|Narrative|Narrative|`string`|30|||
+
++ Response 200 (application/json; charset=utf-8)
++ Attributes (InvoiceStageLeg)
+
 # Data Structures
 
 ## 200 SuccessResponse (object)
@@ -947,6 +1019,42 @@ None.
 + SecondBrokerCommissionCurrencyCode: GBP (string)
 + TradeTime: 15:25 (string)
 + TradingEntityId: DT (string)
+
+## InvoiceStageLeg (object)
++ GroupNumber: 1 (number)
++ HaulId: 101 (number)
++ CostCode: CC-100 (string)
++ PercentActualised: 100 (number)
++ InvoiceValue: 110.00 (number)
++ VatCode: S1 (string)
++ NominalAccountCode: NOM-100 (string)
++ ExpenseCode: EXP- 10 (string)
++ Narrative: Invoice Leg 1 (string)
+
+## InvoiceStageLeg2 (object)
++ GroupNumber: 2 (number)
++ HaulId: 102 (number)
++ CostCode: CC-200 (string)
++ PercentActualised: 100 (number)
++ InvoiceValue: 120.00 (number)
++ VatCode: S1 (string)
++ NominalAccountCode: NOM-200 (string)
++ ExpenseCode: EXP- 20 (string)
++ Narrative: Invoice Leg 2 (string)
+
+## InvoiceStageRequest (object)
++ DocumentDate: `2026-08-12T00:00:00Z` (required, string)
++ ValueDate: `2026-09-12T00:00:00Z` (required, string)
++ Type: Warehouse (string)
++ SupplierCode: WARH01 (string)
++ PaymentTermsCode: NET30 (string)
++ ClientReference: REF-2025-001 (string)
++ DocumentFile: `ZG9jMQ==` (string)
++ DocumentName: `doc1.pdf` (string)
++ Legs (array [InvoiceStageLeg, InvoiceStageLeg2])
+
+## InvoiceStageResponse (object)
++ TransactionId: 10 (number)
 
 ## LogisticsMovement Update (object)
 + GroupId: 1515 (number)
