@@ -16,6 +16,7 @@ VERSION: 1.1
 <ul>
 <li>Inventory <b>Logistics Movement Update</b>: Update Logistics Movement,<a href="/#reference/inventory/logistics-movement-update"> Link</a></li>
 <li>Inventory <b>Bale Grouping Update</b>: Update Bale Grouping,<a href="/#reference/inventory/bale-grouping-update"> Link</a></li>
+<li>Invoicing <b>Invoice Staging Records Create</b>: Create Invoice Staging Records,<a href="/#reference/invoicing/invoice-staging-records-create"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
@@ -455,7 +456,7 @@ None.
 # Group Invoicing
 
 ## Invoice Staging Records Create [/Invoicing/{TradingEntityId}/Cotton/InvoiceStage]
-
+`POST` Create Invoice Staging Record per request Leg, and Docman the DocumentFile * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Create Invoice Staging Records [POST]
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -484,7 +485,7 @@ None.
 
             AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (BaleGroupingRequest)
+    + Attributes (InvoiceStageRequest)
 
 + Response 201 (application/json; charset=utf-8)
     + Attributes 
