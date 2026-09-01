@@ -14,7 +14,7 @@ VERSION: 1.1
 ## New Endpoints
 
 <ul>
-<li>Invoicing <b>Invoice Staging Records Create</b>: Create Invoice Staging Records,<a href="/#reference/invoicing/invoice-staging-records-create"> Link</a></li>
+<li>Invoicing <b>Discharge Weights Create</b>: Create Dishcarge Weights,<a href="/#reference/invoicing/discharge-weights-create"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
@@ -455,14 +455,14 @@ None.
 
 ## Discharge Weights Create [/Invoicing/{TradingEntityId}/Trade/DischargeWeights]
 `POST` Create Discharge Weights * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
-### Create Invoice Staging Records [POST]
+### Create Discharge Weights [POST]
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |PhysicalTradeId|Physical Trade Id|`string`|10||Required|
 |LandingReportDate|Landing Report Date|`datetime`|||Required|
 |ControllerReference|Cointroller Reference|`string`|30||Required|
-|FirstController|see <b><a href="/#reference/data-object-definitions">Invoice Stage Leg</a></b> object|`object`|||Required|
-|SecondController|see <b><a href="/#reference/data-object-definitions">Invoice Stage Leg</a></b> object|`object`||||
+|FirstController|see <b><a href="/#reference/data-object-definitions/controller">Controller</a></b> object|`object`|||Required|
+|SecondController|see <b><a href="/#reference/data-object-definitions/controller">Controller</a></b> object|`object`||||
 
 <hr />
 
