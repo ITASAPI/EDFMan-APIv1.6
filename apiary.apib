@@ -489,6 +489,11 @@ None.
         + Data (DischargeWeightsResponse)
         + Response (201 CreateResponse)
 
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (DischargeWeightsResponse)
+        + Response (200 UpdateResponse)
+
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
 
@@ -1095,11 +1100,20 @@ A multipurpose object used by several endpoints.
 + FirstController (ControllerInput1)
 + SecondController (ControllerInput2)
 
-## DischargeWeightsResponse (object)
+## DischargeWeightsResponse1 (object)
 + PhysicalTradeId: S00001.001 (string)
 + WeightCode: LBS (string)
 + GrossWeight: 1100 (number) 
 + RecordType: Discharge (string)
+
+## DischargeWeightsResponse2 (object)
++ PhysicalTradeId: S00001.001 (string)
++ WeightCode: LBS (string)
++ GrossWeight: 1000 (number) 
++ RecordType: NetLandedTwo (string)
+
+## DischargeWeightsResponse (object)
++ DischargeWeights (array [DischargeWeightsResponse1, DischargeWeightsResponse2])
 
 ## InvoiceStageLeg (object)
 + GroupNumber: 1 (number)
