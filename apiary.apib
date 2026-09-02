@@ -469,10 +469,7 @@ None.
 <b>Response Data</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|PhysicalTradeId|Physical Trade Id|`string`||||
-|WeightCode|Weight Code|`string`||||
-|GrossWeight|Gross Weight|`decimal`||||
-|RecordType|Record Type|`string`||||
+|DischargeWeights|see <b><a href="/#reference/data-object-definitions/discharge-weight">Discharge Weight</a></b> object|[array] of `object`||||
 
 + Parameters
     + TradingEntityId (required, string, `BU`) ... Identify specific trading entity. 
@@ -516,7 +513,7 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |DocumentFile|Document File|`string`||Base64 string||
 |DocumentName|Document Name|`string`|200|||
-|Legs|see <b><a href="/#reference/data-object-definitions">Invoice Stage Leg</a></b> object|`object`|||Required|
+|Legs|see <b><a href="/#reference/data-object-definitions">Invoice Stage Leg</a></b> object|[array] of `object`|||Required|
 
 <hr />
 
