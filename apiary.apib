@@ -845,6 +845,21 @@ A multipurpose object used by several endpoints.
 + Response 200 (application/json; charset=utf-8)
 + Attributes (ControllerInput1)
 
+## Discharge Weight [/DischargeWeight]
+A multipurpose object used by several endpoints. 
+
+### Discharge Weight[GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|PhysicalTradeId|Physical Trade Id|`string`||||
+|WeightCode|Weight Code|`string`||||
+|GrossWeight|Gross Weight|`decimal`||||
+|RecordType|Record Type|`string`||||
+
++ Response 200 (application/json; charset=utf-8)
++ Attributes (DischargeWeightsResponse1)
+
 ## Invoice Stage Leg [/InvoiceStageLeg]
 A multipurpose object used by several endpoints. 
 
